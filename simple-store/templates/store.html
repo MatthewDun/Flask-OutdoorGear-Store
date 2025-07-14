@@ -5,19 +5,40 @@
     <title>Matthew's Shop</title>
     
     <style>
-      center {
+      .center {
         text-align: center;
       }
       .header {
         color: #000000;
       }
       
+      .button-container {
+        display: flex;
+        gap: 5px; 
+      }
+      
     </style>
     
   </head>
+  
+  
   <body>
-    <center><h1 class="title">Matthew's Shop</h1></center>
+    <center><h1>Matthew's Shop</h1></center>
     
+    
+  <div class="button-container">
+    
+    <a href="https://google.com">
+     <button class="button-container">Home</button>
+    </a>
+  
+    <a href="https://google.com">
+     <button class="button-container">About</button>
+    </a>
+    
+  </div>
+
+
     <form action="/search" method="GET">
       <p>Search: <input type="text"></p>
       
