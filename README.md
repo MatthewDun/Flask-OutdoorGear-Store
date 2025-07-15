@@ -11,4 +11,4 @@ Goals:
     Learn to use SQL and implement a secure database.
 
 Timeline:
-I plan to finish this project by the beginning of September!
+I plan to finish this project by the beginning of September 2025!
