@@ -27,7 +27,8 @@ a {
 .container {
     max-width: 1200px;
     margin-inline: auto;
-    padding: 8px 32px;
+    padding: 0px 32px;
+
 }
 
 .Contact {
@@ -76,15 +77,46 @@ nav .menu-items .Contact:hover {
     font-size: 24px;
 }
 
-.left {
-    align-items: left;
-    padding: 90px 100px;
+h1 {
+    display: flex;
+    justify-content: left;
+    padding: 50px 200px;
     font-weight: 500;
-    font-size: 24px;
+    font-size: 80px;
+    background: linear-gradient(90deg, #a4d89f 7%, #135f00 60%);
+    background-clip: text;
+    color: transparent;
+    -webkit-background-clip: text;
 }
 
+
+
 .description {
-    padding: 400px 100px;
-    font-weight: 500;
-    font-size: 20px;
+    display: flex;
+    font-size: 24px;
+    justify-content: center;
+    padding: 100px 0px;
 }
+
+.Here {
+    color: #06a16e;
+    
+}
+
+.rocks {
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+}
+
+.trees {
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
