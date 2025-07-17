@@ -10,7 +10,7 @@
 :root {
     --dark-color: #0f0f0f;
     --light-color: #FFFFFF;
-    --accent-color: #25292c79;
+    --accent-color: #11131479;
 }
 
 body {
@@ -65,4 +65,26 @@ nav .menu-items {
 
 nav .menu-items a:hover {
     color: var(--accent-color);
+}
+
+nav .menu-items .Contact:hover {
+    color: #fae5e5;
+}
+
+.logo {
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.left {
+    align-items: left;
+    padding: 90px 100px;
+    font-weight: 500;
+    font-size: 24px;
+}
+
+.description {
+    padding: 400px 100px;
+    font-weight: 500;
+    font-size: 20px;
 }
