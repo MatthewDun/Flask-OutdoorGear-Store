@@ -1,10 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
 *,
 *::before,
 *::after {
     box-sizing: border-box;
-    font-family: "Raleway", italic;
+    font-family: "Fjalla+One&family=Raleway", italic;
 }
 
 :root {
@@ -77,46 +79,51 @@ nav .menu-items .Contact:hover {
     font-size: 24px;
 }
 
-h1 {
-    display: flex;
-    justify-content: left;
-    padding: 50px 200px;
+.header {
+    position: relative;
+    z-index: 3;
+
+    padding: 100px 200px;
     font-weight: 500;
-    font-size: 80px;
-    background: linear-gradient(90deg, #a4d89f 7%, #135f00 60%);
-    background-clip: text;
-    color: transparent;
-    -webkit-background-clip: text;
+    font-size: 35px;
+    color: #FFFFFF;
 }
 
-
-
-.description {
-    display: flex;
-    font-size: 24px;
-    justify-content: center;
-    padding: 100px 0px;
+h1 {
+    margin: 0;
+    font-weight: lighter;
+    text-align: center;
 }
 
-.Here {
-    color: #06a16e;
-    
-}
-
-.rocks {
-    height: 300px;
+.tree {
+    z-index: 2;
+    height: 500px;
     overflow: hidden;
-    position: relative;
-}
-
-.trees {
-    height: 200px;
-    overflow: hidden;
-    position: relative;
+    position: absolute;
 }
 
 img {
     width: 100%;
     display: block;
+}
+
+.slideshow {
+    width: 25%;
+    
+    padding-top: 200px;
+    margin: auto;
+}
+
+
+.search-bar {
+    padding: 00px 500px;
+    font-size: 35px;
+    margin: 0;
+    width: 100%
+
+}
+
+.next {
+    text-align: center;
 }
 
