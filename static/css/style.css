@@ -87,6 +87,7 @@ nav .menu-items .Contact:hover {
     font-weight: 500;
     font-size: 35px;
     color: #FFFFFF;
+
 }
 
 h1 {
@@ -96,7 +97,7 @@ h1 {
 }
 
 .tree {
-    z-index: 2;
+    z-index: 1;
     height: 500px;
     overflow: hidden;
     position: absolute;
@@ -116,14 +117,21 @@ img {
 
 
 .search-bar {
-    padding: 00px 500px;
+    position: relative;
+    z-index: 3;
+    font-weight: 500;
     font-size: 35px;
-    margin: 0;
-    width: 100%
+    text-align: center;
+
+    a {
+        color: #FFFF;
+        background-color: #000000;
+    }
 
 }
 
 .next {
     text-align: center;
+    padding-bottom: 50px;
 }
 
