@@ -105,14 +105,28 @@ h1 {
 
 img {
     width: 100%;
-    display: block;
+    height: auto;
+    display: flex;
 }
 
 .slideshow {
-    width: 25%;
-    
+    display: flex;
+    justify-content: center;
+    height: 650px;
     padding-top: 200px;
     margin: auto;
+    animation: fadeIn 3s;
+
+
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 
@@ -125,7 +139,9 @@ img {
 
     a {
         color: #FFFF;
-        background-color: #000000;
+        background-color: #006912;
+        border-radius: 10px;
+        padding: 5px;
     }
 
 }
@@ -134,4 +150,3 @@ img {
     text-align: center;
     padding-bottom: 50px;
 }
-

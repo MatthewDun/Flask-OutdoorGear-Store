@@ -35,7 +35,7 @@
   </div>
 
   <div class="search-bar">
-    <a href="/login">Click Here To Start Shopping!</a>
+    <a href="/login">Click Here To Start Shopping</a>
   </div>
 
   <script>
@@ -45,16 +45,26 @@
     images[0] = 'static/images/shoe.jpg';
     images[1] = 'static/images/rope.jpg';
     images[2] = 'static/images/skis.jpg';
+    images[3] = 'static/images/carabiner.jpg';
 
     function changeimg() {
-      document.slide.src = images[i];
+      document.slide2.src = images[i];
+      document.slide4.src = images[i+1];
+
+      document.slide3.src = images[i+2];
+      document.slide.src = images[i+3];
+
+
 
       if (i < images.length - 1) {
         i++;
+
       } else {
           i = 0;
       }
+
     }
+
 
     window.onload = changeimg;
 
@@ -62,8 +72,12 @@
   </script>
 
   <div class="slideshow">
+    <img name="slide2" width="200" height="500">
     <img name="slide" width="200" height="500">
+    <img name="slide3" width="200" height="500">
+    <img name="slide4" width="200" height="500">
   </div>
+
 
   <div class="next">
     <button onclick="changeimg()" name="next-button">Next</button>

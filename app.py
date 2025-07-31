@@ -21,7 +21,7 @@ def login():
 
 def store():
     if not session.pop('from-login', False):
-        return abort(403)
+        return redirect(url_for('login'))
     return render_template("store.html")
 
 
