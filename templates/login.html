@@ -3,6 +3,10 @@
 <html>
   <head>
     <title>Matthew's Shop</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outdoor Gear</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
     
     <style>
       .center {
@@ -19,18 +23,35 @@
   </head>
   
   
-  <body style="background-color:powderblue;">
-    <center><h1>Matthew's Shop</h1></center>
-    
-    
-    <form action="submit-form" method="POST">
-      <p>Username: <input name="Username" type="text"></p>
-      <p>Password: <input name="Password" type="text"></p>
+  <body>
 
-      <input name="Submit" type="submit" value="Add">
-      
-    </form>
+    <div class="container">
+      <nav>
+  
+        <div class="logo">
+          <a href="#">Outdoor Gear</a>
+        </div>
+  
+        <div class="menu-items">
+          <a href="/login">Login</a>
+          <a href="/store">Shop</a>
+          <a href="/">Home</a>
+          <a href="#" class="Contact">Contact</a>
+        </div>
+      </nav>
+    </div>
     
+    <div class="login">
+      <form action="submit-form" method="POST">
+        <p>Username: <input name="Username" type="text"></p>
+        <p>Password: <input name="Password" type="text"></p>
+  
+        <input name="Submit" type="submit" value="Login">
+        
+      </form>
+      
+    </div>
 
   </body>
 </html>
+

@@ -26,6 +26,13 @@ def store():
 
 
 
+@app.route("/create-account")
+
+def create_account():
+    return render_template('create-account.html')
+
+
+
 @app.route("/submit-form", methods=["GET", "POST"])
 
 def authenticate():

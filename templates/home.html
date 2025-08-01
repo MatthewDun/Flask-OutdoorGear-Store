@@ -18,7 +18,7 @@
       <div class="menu-items">
         <a href="/login">Login</a>
         <a href="/store">Shop</a>
-        <a href="#">About</a>
+        <a href="/">Home</a>
         <a href="#" class="Contact">Contact</a>
       </div>
     </nav>
@@ -35,41 +35,44 @@
   </div>
 
   <div class="search-bar">
-    <a href="/login">Create Account</a>
+    <a href="/create-account">Create Account</a>
   </div>
 
   <script>
-    var i = 0;
-    var k = 2;
-
-    var images = [];
-
-    images[0] = 'static/images/shoe.jpg';
-    images[1] = 'static/images/rope.jpg';
-    images[2] = 'static/images/skis.jpg';
-    images[3] = 'static/images/carabiner.jpg';
-    images[4] = 'static/images/ice-axe.jpg';
-
+    const images = [
+      'static/images/shoe.jpg',
+      'static/images/rope.jpg',
+      'static/images/skis.jpg',
+      'static/images/carabiner.jpg',
+      'static/images/ice-axe.jpg',
+      'static/images/crashpad.webp'
+    ];
+  
+    let i = 4;
+    let j = 1;
+    let k = 2;
+  
     function changeimg() {
+
+
+
+
       document.slide2.src = images[i];
       document.slide3.src = images[k];
+      document.slide4.src = images[j];
 
-      if (i < images.length - 1) {
-        document.slide4.src = images[i+1];
-        i++;
-      } else {
-        document.slide4.src = images[0];
-          i = 0;
-      }
 
-      if (k < images.length - 1) {
-        document.slide.src = images[k+1];
-        k++;
-      } else {
-        document.slide.src = images[0];
-          k = 0;
+
+      i = (i + 1) % images.length;
+      j = (j + 1) % images.length;
+  
+      if (document.slide) {
+        const nextK = (k + 1) % images.length;
+        document.slide.src = images[nextK];
+        k = nextK;
       }
     }
+  
     window.onload = changeimg;
   </script>
 
