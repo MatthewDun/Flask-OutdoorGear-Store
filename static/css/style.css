@@ -99,7 +99,7 @@ h1 {
 
 .tree {
     z-index: 1;
-    height: 500px;
+    height: 600px;
     overflow: hidden;
     position: absolute;
 }
@@ -113,8 +113,8 @@ img {
 .slideshow {
     display: flex;
     justify-content: center;
-    height: 600px;
-    padding-top: 200px;
+    height: 700px;
+    padding-top: 300px;
     margin: auto;
     animation: fadeIn 3s;
 
@@ -164,7 +164,7 @@ img {
 }
 
 .tree-bottom-page {
-    height: 100px;
+    height: 90px;
     overflow: hidden;
     position: absolute;
 }
