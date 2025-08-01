@@ -86,7 +86,8 @@ nav .menu-items .Contact:hover {
     padding: 100px 200px;
     font-weight: 500;
     font-size: 35px;
-    color: #FFFFFF;
+    color: #ffffff;
+    text-shadow: 2px 0px 5px #000000;
 
 }
 
@@ -136,17 +137,30 @@ img {
     font-weight: 500;
     font-size: 35px;
     text-align: center;
+    text-shadow: 3px 2px 5px #000000;
 
     a {
         color: #FFFF;
-        background-color: #006912;
-        border-radius: 10px;
+        border-radius: 8px;
         padding: 5px;
+        box-shadow: 2px 2px 5px;
+        background-color: rgba(0,0,0,0.4);
     }
 
+}
+
+.search-bar a:hover {
+    color: #e4e2e2
 }
 
 .next {
     text-align: center;
     padding-bottom: 50px;
+    color: white;
+}
+
+.tree-bottom-page {
+    height: 100px;
+    overflow: hidden;
+    position: absolute;
 }
