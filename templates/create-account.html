@@ -26,6 +26,38 @@
 
   <!-- NAV BAR -->
 
+  <div class="login">
+    <form action="/submit-account" method="POST">
+      <p>Email: <input id="New_Email" type="text"></p>
+      <p>Password: <input id="New_Password" type="text"></p>
+
+      <button type="button" onclick="sendData()">Create Account</button>
+      
+    </form>
+  </div>
+
+  <p id="message"></p>
+
+  <script>
+    function sendData() {
+      const New_Email = document.getElementById("New_Email").value;
+
+      fetch('/submit-account', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ New_Email: New_Email })
+      })
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById("message").textContent = data.message;
+      });
+    }
+  </script>
+
+
+
 
 
 </body>
