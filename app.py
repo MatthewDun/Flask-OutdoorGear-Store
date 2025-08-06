@@ -1,10 +1,8 @@
 from flask import Flask, render_template, redirect, request, url_for, session, g, jsonify
 import sqlite3
-from flask_bcrypt import Bcrypt
 
 app = Flask(__name__)
 app.secret_key = 'secret'
-bcrypt = Bcrypt(app)
 
 def connect_db():
     sql = sqlite3.connect('./database.db')
@@ -36,10 +34,9 @@ def login():
 
 @app.route("/store")
 def store():
-    if not session.pop('from-login', False):
+    if 'user_id' not in session:
         return redirect(url_for('login'))
     return render_template("store.html")
-
 
 
 @app.route("/create-account")
@@ -47,20 +44,21 @@ def create_account():
     return render_template('create-account.html')
 
 
-@app.route("/submit-form", methods=["GET"])
+@app.route("/submit-form", methods=['GET', 'POST'])
 def authenticate():
     Username = request.form["Username"]
     Password = request.form["Password"]
 
     db = get_db()
-    cursor = db.execute('SELECT * FROM users WHERE email = ?', (Username,))
+    cursor = db.execute('SELECT * FROM users WHERE email = ? AND password = ?', (Username, Password))
     user = cursor.fetchone()
 
-    if user and bcrypt.check_password_hash(user['password'], Password):
-        session['from-login'] = True
+    if user:
+        session['user_id'] = user['id']
+        session['email'] = user['email']
         return redirect(url_for('store'))
-    else:
-        return redirect(url_for('login'))
+    
+    return redirect(url_for('login'))
 
     
 
@@ -72,21 +70,17 @@ def check_account():
     email = data.get("New_Email")
     password = data.get("New_Password")
 
-
     db = get_db()
     cursor = db.execute('SELECT * FROM users WHERE email = ?', (email,))
-    rows = cursor.fetchall()
+    if cursor.fetchone():
+        return jsonify({'message': 'Email already exists'})
+    if not password or len(password) < 9:
+        return jsonify({'message': 'Password must be at least 8 characters long'})
 
     #THE CODE BELOW IS FOR TESTING PURPOUSES. WILL GET SENT A EMAIL IN THE FUTURE
-
-    if (len(rows) > 0):
-        return jsonify({'message': 'Email already exists'})
-    elif (len(password) < 9):
-        return jsonify({'message': 'Password must be at least 8 characters long'})
-    else:
-        hashed_pw = bcrypt.generate_password_hash(password).decode('utf-8')
-        db.execute('INSERT INTO users (email, password) VALUES (?, ?)', (email, hashed_pw))
-        return jsonify({'message': f'Verifcation email was sent to {email}'})
+    db.execute('INSERT INTO users (email, password) VALUES (?, ?)', (email, password))
+    db.commit()
+    return jsonify({'message': f'Verifcation email was sent to {email}'})
 
 
 
