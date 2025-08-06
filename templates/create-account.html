@@ -25,6 +25,9 @@
   </div>
 
   <!-- NAV BAR -->
+  <div class="create-acc-header">
+    <h1>Create a account</h1>
+  </div>
 
   <div class="login">
     <form action="/submit-account" method="POST">
@@ -36,18 +39,23 @@
     </form>
   </div>
 
+  <div class="captcha">
+    <p>Future reCAPTCHA button. Need domain...</p>
+  </div>
+
   <p id="message"></p>
 
   <script>
     function sendData() {
       const New_Email = document.getElementById("New_Email").value;
+      const New_Password = document.getElementById("New_Password").value;
 
       fetch('/submit-account', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ New_Email: New_Email })
+        body: JSON.stringify({ New_Email: New_Email , New_Password: New_Password})
       })
       .then(response => response.json())
       .then(data => {

@@ -176,6 +176,15 @@ img {
 
 
 .login {
-    padding-top: 100px;
+
     padding-left: 50px;
+}
+
+.captcha {
+    background-color: rgba(231, 231, 231, 0.4);
+    padding-left: 120px;
+}
+
+.create-acc-header {
+    padding-top: 80px;
 }

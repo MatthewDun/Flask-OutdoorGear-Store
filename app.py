@@ -1,8 +1,10 @@
 from flask import Flask, render_template, redirect, request, url_for, session, g, jsonify
 import sqlite3
+from flask_bcrypt import Bcrypt
 
 app = Flask(__name__)
 app.secret_key = 'secret'
+bcrypt = Bcrypt(app)
 
 def connect_db():
     sql = sqlite3.connect('./database.db')
@@ -23,20 +25,16 @@ def close_db(error):
 
 
 @app.route("/", methods=["GET", "POST"])
-
 def home():
     return render_template("home.html")
 
 
 @app.route("/login",methods=["GET", "POST"])
-
 def login():
     return render_template("login.html")
         
 
-
 @app.route("/store")
-
 def store():
     if not session.pop('from-login', False):
         return redirect(url_for('login'))
@@ -45,64 +43,50 @@ def store():
 
 
 @app.route("/create-account")
-
 def create_account():
     return render_template('create-account.html')
 
-def check_account():
-    New_Email = request.form["New_Email"]
-    New_Password = request.form["New_Password"]
 
-    db = get_db()
-    cursor = db.execute('SELECT * FROM users WHERE email = ?', (New_Email,))
-    rows = cursor.fetchall()
-
-    balls = "walls"
-
-    if (len(rows) > 0):
-        balls = "balls"
-
-    return f"<h1>{balls} is what is is</h1>"
-
-
-
-
-
-@app.route("/submit-form", methods=["GET", "POST"])
-
+@app.route("/submit-form", methods=["GET"])
 def authenticate():
     Username = request.form["Username"]
     Password = request.form["Password"]
 
-    print("Username is", Username)
-    if Username == "Admin" and Password == "Pass":
+    db = get_db()
+    cursor = db.execute('SELECT * FROM users WHERE email = ?', (Username,))
+    user = cursor.fetchone()
+
+    if user and bcrypt.check_password_hash(user['password'], Password):
         session['from-login'] = True
         return redirect(url_for('store'))
     else:
         return redirect(url_for('login'))
 
-    #return f"<h1>Id {results[0]['id']}. <br> Email {results[0]['email']} <br> Password {results[0]['password']} <br>"
+    
 
-    
-    
 @app.route("/submit-account", methods=["GET","POST"])
-
 def check_account():
 
     data = request.get_json()
 
     email = data.get("New_Email")
+    password = data.get("New_Password")
 
 
     db = get_db()
     cursor = db.execute('SELECT * FROM users WHERE email = ?', (email,))
     rows = cursor.fetchall()
 
+    #THE CODE BELOW IS FOR TESTING PURPOUSES. WILL GET SENT A EMAIL IN THE FUTURE
+
     if (len(rows) > 0):
         return jsonify({'message': 'Email already exists'})
+    elif (len(password) < 9):
+        return jsonify({'message': 'Password must be at least 8 characters long'})
     else:
+        hashed_pw = bcrypt.generate_password_hash(password).decode('utf-8')
+        db.execute('INSERT INTO users (email, password) VALUES (?, ?)', (email, hashed_pw))
         return jsonify({'message': f'Verifcation email was sent to {email}'})
-        
 
 
 
