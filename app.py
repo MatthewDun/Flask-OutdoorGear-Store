@@ -82,6 +82,11 @@ def check_account():
     return jsonify({'message': f'Verifcation email was sent to {email}'})
 
 
+@app.route("/search",  methods=["GET","POST"])
+def search_item():
+    item = request.form["item"]
+
+
 
 
 if __name__ == '__main__':
