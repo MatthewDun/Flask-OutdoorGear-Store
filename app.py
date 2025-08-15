@@ -55,7 +55,6 @@ def authenticate():
 
     if user:
         session['user_id'] = user['id']
-        session['email'] = user['email']
         return redirect(url_for('store'))
     
     return redirect(url_for('login'))
