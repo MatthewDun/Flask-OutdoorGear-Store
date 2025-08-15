@@ -1,14 +1,19 @@
-This is a work-in-progress store!
+This is a work-in-progress outdoor gear store!
 
-Goals:
+To-do list:
 
-    Create a website where users can upload a photo and set a price for an item to sell in the store.
+Front-end:
+make login/create-account pages pretty
+create a user-profile page
+make store page
+make purchasing page
 
-    Implement user account creation and login functionality.
+Back-end:
+make store page functional (upload images and set prices to them)
+make purchasing items page work
 
-    Apply security skills to prevent attacks such as SQL injection, directory traversal, remote file inclusion (RFI), and other common threats.
 
-    Learn to use SQL and implement a secure database.
+    
 
 Timeline:
 I plan to finish this project by the beginning of September 2025!
