@@ -10,13 +10,13 @@ def connect_db():
     return sql
 
 def get_db():
-    if not hasattr(g, 'sqlite3'):
+    if not hasattr(g, 'sqlite3_db'):
         g.sqlite3_db = connect_db()
-        return g.sqlite3_db
+    return g.sqlite3_db
 
 @app.teardown_appcontext
 def close_db(error):
-    if hasattr(g,'sqlite3'):
+    if hasattr(g, 'sqlite3_db'):
         g.sqlite3_db.close()
 
 
@@ -96,6 +96,26 @@ def check_account():
 @app.route("/search",  methods=["GET","POST"])
 def search_item():
     item = request.form["item"]
+
+
+@app.route('/add-listing', methods=['GET', 'POST'])
+def listing():
+    name = request.form["name"]
+    price = request.form["price"]
+    img_url = request.form["img"]
+
+    if "user_id" not in session:
+        return redirect(url_for('login'))
+    user_id = session['user_id']
+
+    db = get_db()
+    db.execute('INSERT INTO products (user_id, name, price, image_url) VALUES (?, ?, ?, ?)', (user_id, name, price, img_url))
+    db.commit()
+
+    return redirect(url_for('store'))
+
+    
+
 
 
 

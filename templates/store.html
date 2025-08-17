@@ -1,50 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-<html>
-  <head>
-    <title>Matthew's Shop</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Outdoor Gear</title>
+  <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+</head>
+<body>
+  
+  <div class="container">
+    <nav>
+
+      <div class="logo">
+        <a href="#">Outdoor Gear</a>
+      </div>
+
+      <div class="menu-items">
+        <a href="/profile">Login</a>
+        <a href="/store">Shop</a>
+        <a href="/">Home</a>
+        <a href="#" class="Contact">Contact</a>
+      </div>
+    </nav>
+  </div>
+
+  <!-- NAV BAR -->
+
+
+  <form action="/search" method="GET">
+    <p>Search: <input type="text" name="item"></p>
     
-    <style>
-      .center {
-        text-align: center;
+  </form>
+
+
+
+  <script>
+    const images = [
+      'static/images/shoe.jpg',
+      'static/images/rope.jpg',
+      'static/images/skis.jpg',
+      'static/images/carabiner.jpg',
+      'static/images/ice-axe.jpg',
+      'static/images/crashpad.webp'
+    ];
+  
+    let i = 4;
+    let j = 1;
+    let k = 2;
+  
+    function changeimg() {
+
+
+
+
+      document.slide2.src = images[i];
+      document.slide3.src = images[k];
+      document.slide4.src = images[j];
+
+
+
+      i = (i + 1) % images.length;
+      j = (j + 1) % images.length;
+  
+      if (document.slide) {
+        const nextK = (k + 1) % images.length;
+        document.slide.src = images[nextK];
+        k = nextK;
       }
-      
-      .button-container {
-        display: flex;
-        gap: 5px; 
-      }
-      
-    </style>
-    
-  </head>
+    }
   
-  
-  <body style="background-color:powderblue;">
-    <center><h1>Matthew's Shop</h1></center>
-    
-    
-  <div class="button-container">
-    
-    <a href="https://google.com">
-     <button class="button-container">Login</button>
-    </a>
-  
-    <a href="https://google.com">
-     <button class="button-container">Home</button>
-    </a>
-    
-    <a href="https://google.com">
-     <button class="button-container">About</button>
-    </a>
-    
+    window.onload = changeimg;
+  </script>
+
+  <div class="slideshow">
+    <img name="slide2" width="200" height="500">
+    <img name="slide" width="200" height="500">
+    <img name="slide3" width="200" height="500">
+    <img name="slide4" width="200" height="500">
   </div>
 
 
-    <form action="/search" method="GET">
-      <p>Search: <input type="text" name="item"></p>
-      
-    </form>
-    
-    
-  </body>
+  <div class="next">
+    <button onclick="changeimg()" name="next-button">Next</button>
+  </div>
+
+  <div class="tree-bottom-page">
+    <img src="static/images/trees.jpg" alt="" />
+  </div>
+
+
+</body>
 </html>

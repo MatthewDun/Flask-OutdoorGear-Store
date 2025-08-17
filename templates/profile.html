@@ -16,7 +16,7 @@
       </div>
 
       <div class="menu-items">
-        <a href="/login">Login</a>
+        <a href="/logout">Logout</a>
         <a href="/store">Shop</a>
         <a href="/">Home</a>
         <a href="#" class="Contact">Contact</a>
@@ -26,9 +26,15 @@
 
   <!-- NAV BAR -->
 
+  <div class="Create-listing">
+    <form action="add-listing" method="POST">
+      <p>Name of listing: <input name="name" type="text"></p>
+      <p>Price: <input name="price" type="text"></p>
+      <p>Img: <input name="img" type="text"></p>
 
-  <div class="logout">
-    <a href="/logout">Logout</a>
+      <input name="Submit" type="submit" value="add-listing">
+      
+    </form>
   </div>
 
 
