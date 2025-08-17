@@ -185,10 +185,10 @@ img {
     z-index: 3;
     text-align: center;
     color: #ffffff;
-    box-shadow: 1px 2px 3px;
+    box-shadow: 1px 1px 1px;
     text-shadow: 7px 6px 12px #000000;
     background-color: rgba(0,0,0,0.6);
-    font-size: 130%;
+    font-size: 120%;
     border-radius: 10px;
 
     padding: 20px;
@@ -197,6 +197,31 @@ img {
     margin: 0 auto; /* centers horizontally */
 
 }
+
+.create-acc-link {
+    position: relative;
+    top: 250px;
+    z-index: 3;
+    text-align: center;
+
+    font-size: 130%;
+    border-radius: 10px;
+
+    padding: 20px;
+    width: 200px;   /* fixed width */
+    height: 90px;  /* fixed height → makes it a box */
+    margin: 0 auto; /* centers horizontally */
+
+    a {
+        color: #FFFF;
+        border-radius: 8px;
+        padding: 5px;
+        box-shadow: 1px 1px 1px;
+        background-color: rgba(0,0,0,0.4);
+    }
+
+}
+
 
 .tree2 {
     z-index: 1;
