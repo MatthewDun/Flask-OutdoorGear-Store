@@ -27,15 +27,8 @@ def home():
     return render_template("home.html")
 
 
-@app.route("/login",methods=["GET", "POST"])
-def login():
-    return render_template("login.html")
-        
-
 @app.route("/store")
 def store():
-    if 'user_id' not in session:
-        return redirect(url_for('login'))
     return render_template("store.html")
 
 
@@ -44,7 +37,19 @@ def create_account():
     return render_template('create-account.html')
 
 
-@app.route("/submit-form", methods=['GET', 'POST'])
+@app.route("/profile")
+def profile():
+    if 'user_id' not in session:
+        return redirect(url_for('login'))
+    return render_template("profile.html")
+
+
+@app.route("/login")
+def login():
+    return render_template('login.html')
+
+
+@app.route("/submit-form", methods=['GET', 'POST']) #login to profile
 def authenticate():
     Username = request.form["Username"]
     Password = request.form["Password"]
@@ -55,9 +60,15 @@ def authenticate():
 
     if user:
         session['user_id'] = user['id']
-        return redirect(url_for('store'))
+        return redirect(url_for('profile'))
     
     return redirect(url_for('login'))
+
+
+@app.route("/logout")
+def logout():
+    session.clear()
+    return redirect(url_for('home'))
 
     
 
