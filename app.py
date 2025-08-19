@@ -10,13 +10,13 @@ def connect_db():
     return sql
 
 def get_db():
-    if not hasattr(g, 'sqlite3_db'):
+    if not hasattr(g, 'sqlite3'):
         g.sqlite3_db = connect_db()
-    return g.sqlite3_db
+        return g.sqlite3_db
 
 @app.teardown_appcontext
 def close_db(error):
-    if hasattr(g, 'sqlite3_db'):
+    if hasattr(g,'sqlite3'):
         g.sqlite3_db.close()
 
 
@@ -107,6 +107,10 @@ def listing():
     if "user_id" not in session:
         return redirect(url_for('login'))
     user_id = session['user_id']
+
+    if len(name) == 0:
+        return jsonify({'message': 'invalid entry'})
+
 
     db = get_db()
     db.execute('INSERT INTO products (user_id, name, price, image_url) VALUES (?, ?, ?, ?)', (user_id, name, price, img_url))

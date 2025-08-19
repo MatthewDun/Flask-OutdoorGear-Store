@@ -29,13 +29,60 @@
   <div class="Create-listing">
     <form action="add-listing" method="POST">
       <p>Name of listing: <input name="name" type="text"></p>
-      <p>Price: <input name="price" type="text"></p>
-      <p>Img: <input name="img" type="text"></p>
+      <p>Price: <input name="price" type="number" placeholder="Price" step="0.01" required></p>
+      <input type="file" id="imagePreview" name="img" accept="image/*" required>
+      <br><br>
+      <img id="preview" src="#" alt="Image preview" style="display:none; max-width:200px; border:1px soild #ccc; margin-top: 10px;">
+      <br><br>
 
-      <input name="Submit" type="submit" value="create-listing">
+      <button type="submit">Upload</button>
       
     </form>
   </div>
+
+  <p id="message"></p>
+
+  <script>
+    const imageInput = document.getElementById("imagePreview"); 
+    const preview = document.getElementById("preview");
+
+    imageInput.addEventListener("change", function(){
+      const file = this.files[0];
+
+      if (file) {
+        const reader = new FileReader();
+
+        reader.onload = function(e) {
+          preview.style.display = "block";
+          preview.src = e.target.result;
+      };
+
+      reader.readAsDataURL(file);
+      } else {
+        preview.style.display = "none";
+        preview.src = "#";
+      }
+
+
+    });
+
+    function sendData() {
+      const formData = new FormData(document.getElementById("myForm"));
+
+      fetch("/submit", {
+        method: "POST",
+        body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById("message").textContent = data.message;
+      });
+    }
+
+
+
+
+  </script>
 
 
 </body>
