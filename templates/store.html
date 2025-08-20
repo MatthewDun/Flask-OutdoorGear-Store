@@ -17,9 +17,9 @@
 
       <div class="menu-items">
         <a href="/profile">Login</a>
-        <a href="/store">Shop</a>
+        <a href="/home">Contact</a>
         <a href="/">Home</a>
-        <a href="#" class="Contact">Contact</a>
+        <a href="/store" class="Contact">Shop</a>
       </div>
     </nav>
   </div>
@@ -49,15 +49,9 @@
     let k = 2;
   
     function changeimg() {
-
-
-
-
       document.slide2.src = images[i];
       document.slide3.src = images[k];
       document.slide4.src = images[j];
-
-
 
       i = (i + 1) % images.length;
       j = (j + 1) % images.length;
