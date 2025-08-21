@@ -26,60 +26,33 @@
 
   <!-- NAV BAR -->
 
-
-  <form action="/search" method="GET">
-    <p>Search: <input type="text" name="item"></p>
-    
-  </form>
-
-
-
-  <script>
-    const images = [
-      'static/images/shoe.jpg',
-      'static/images/rope.jpg',
-      'static/images/skis.jpg',
-      'static/images/carabiner.jpg',
-      'static/images/ice-axe.jpg',
-      'static/images/crashpad.webp'
-    ];
-  
-    let i = 4;
-    let j = 1;
-    let k = 2;
-  
-    function changeimg() {
-      document.slide2.src = images[i];
-      document.slide3.src = images[k];
-      document.slide4.src = images[j];
-
-      i = (i + 1) % images.length;
-      j = (j + 1) % images.length;
-  
-      if (document.slide) {
-        const nextK = (k + 1) % images.length;
-        document.slide.src = images[nextK];
-        k = nextK;
-      }
-    }
-  
-    window.onload = changeimg;
-  </script>
-
-  <div class="slideshow">
-    <img name="slide2" width="200" height="500">
-    <img name="slide" width="200" height="500">
-    <img name="slide3" width="200" height="500">
-    <img name="slide4" width="200" height="500">
-  </div>
-
-
-  <div class="next">
-    <button onclick="changeimg()" name="next-button">Next</button>
-  </div>
-
-  <div class="tree-bottom-page">
+  <div class="tree2">
     <img src="static/images/trees.jpg" alt="" />
+  </div>
+
+  <div class="search-bar2">
+    <form action="/search" method="GET">
+      <input type="text" name="item" class="search-bar-store" placeholder="Search Gear...">
+      
+    </form>
+  </div>
+
+  <div class="catagory-nav-bar">
+    <div class="catagories">
+      <a href="/">Mens</a>
+      <a href="/">Womens</a>
+      <a href="/">Climbing Gear</a>
+      <a href="/">Snow Gear</a>
+      <a href="/">Mountaineering</a>
+      <a href="/">Backpacking</a>
+      <a href="/">Camping</a>
+      <a href="/">Surfing</a>
+      <a href="/">Mountain Biking</a>
+    </div>
+  </div>
+
+  <div class="sale">
+    <img src="static/images/summer-sale.webp" alt="" />
   </div>
 
 

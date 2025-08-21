@@ -34,7 +34,7 @@ a {
 }
 
 .Contact {
-    background-color: rgb(6, 161, 110);
+    background-color: rgb(20, 20, 20);
     color: var(--light-color);
     padding: 8px 32px;
     display: inline-block;
@@ -104,6 +104,13 @@ h1 {
     position: absolute;
 }
 
+.tree2 {
+    z-index: 1;
+    height: 100px;
+    overflow: hidden;
+    position: absolute;
+}
+
 img {
     width: 100%;
     height: auto;
@@ -113,7 +120,7 @@ img {
 .slideshow {
     display: flex;
     justify-content: center;
-    height: 700px;
+    height: 650px;
     padding-top: 320px;
     margin: auto;
     animation: fadeIn 3s;
@@ -259,4 +266,51 @@ img {
 
 .Create-listing {
     padding: 100px;
+}
+
+
+.search-bar2 {
+    position: relative;
+    top: 120px;
+    text-align: center;
+    z-index: 3;
+}
+
+.search-bar-store {
+    background-color: #e0dddd;
+    border-radius: 7px;
+    width: 50%;
+    height: 32px;
+}
+
+
+.catagory-nav-bar {
+    position: fixed;
+    justify-content: space-between;
+    align-items: center;
+    left: 0;
+    right: 0;
+    margin-inline: auto;
+    top: 22%;
+    padding: 16px 32px;
+    --webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 8px 42px rgba(0,0,0,0.1);
+}
+
+.catagories {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    font-weight: 500;
+}
+
+.sale {
+    top: 245px;
+    align-items: center;
+    height: 250px;
+    overflow: hidden;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0%);
 }
