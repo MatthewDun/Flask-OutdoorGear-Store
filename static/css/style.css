@@ -117,16 +117,30 @@ img {
     display: flex;
 }
 
+
+.sale {
+    z-index: 1;
+    top: 170px;
+    align-items: center;
+    height: 390px;
+    overflow: hidden;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0%);
+}
+
 .slideshow {
+    z-index: 5;
     display: flex;
     justify-content: center;
-    height: 650px;
-    padding-top: 320px;
+    height: 340px;
     margin: auto;
     animation: fadeIn 3s;
+    margin-top: 260px;
 
 
 }
+
 
 @keyframes fadeIn {
     0% {
@@ -285,13 +299,13 @@ img {
 
 
 .catagory-nav-bar {
-    position: fixed;
+    position: relative;
     justify-content: space-between;
     align-items: center;
     left: 0;
     right: 0;
     margin-inline: auto;
-    top: 22%;
+    top: 140px;
     padding: 16px 32px;
     --webkit-backdrop-filter: blur(10px);
     box-shadow: 0 8px 42px rgba(0,0,0,0.1);
@@ -305,12 +319,6 @@ img {
     font-weight: 500;
 }
 
-.sale {
+.best-sellers {
     top: 245px;
-    align-items: center;
-    height: 250px;
-    overflow: hidden;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, 0%);
 }
